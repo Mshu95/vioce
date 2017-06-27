@@ -1,7 +1,8 @@
 <component name="libraryTable">
   <library name="json-jena-1.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/Java_voice_1019_5951f0fa/lib/lib/json-jena-1.0.jar!/" />
+      <root url="jar://E:/manager/Java_voice_1019_59522b3c/lib/lib/json-jena-1.0.jar!/" />
+      <root url="jar://E:/manager/Java_voice_1019_59522b3c/lib/lib/Msc.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

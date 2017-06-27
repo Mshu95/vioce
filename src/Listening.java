@@ -14,8 +14,9 @@ public class Listening {
         mIat.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
         mIat.setParameter(SpeechConstant.ACCENT, "mandarin ");
 //3.开始听写
-        mIat.startListening (mRecoListener);
         mIat.stopListening();
+
+        mIat.startListening (mRecoListener);
     }
     //听写监听器
     private static RecognizerListener mRecoListener = new RecognizerListener(){
