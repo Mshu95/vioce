@@ -6,6 +6,7 @@ import java.io.IOException;
 
 /**
  * Created by Asus on 2017/6/27.
+ * 音频流听写
  */
 public class ListeningFromFile {
     private static final String APPID = "59522b3c";

@@ -2,6 +2,7 @@ import com.iflytek.cloud.speech.*;
 
 /**
  * Created by Asus on 2017/6/27.
+ * 语音听写
  */
 public class Listening {
     private static final String APPID = "59522b3c";
