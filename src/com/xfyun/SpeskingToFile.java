@@ -1,7 +1,10 @@
+package com.xfyun;
+
 import com.iflytek.cloud.speech.*;
 
 /**
- * Created by Asus on 2017/6/27.
+ * Created by Mshu on 2017/6/27.
+ * 无声合成
  */
 public class SpeskingToFile {
     private static final String APPID = "59522b3c";

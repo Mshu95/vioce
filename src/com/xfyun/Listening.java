@@ -1,7 +1,9 @@
+package com.xfyun;
+
 import com.iflytek.cloud.speech.*;
 
 /**
- * Created by Asus on 2017/6/27.
+ * Created by Mshu on 2017/6/27.
  * 语音听写
  */
 public class Listening {
@@ -41,6 +43,16 @@ public class Listening {
         //isLast等于true时会话结束。
         public void onResult(RecognizerResult results, boolean isLast){
             System.out.println("Result:"+results.getResultString ());
+            //结果实例
+            //Result:{"sn":1,"ls":false,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"sc":0.00,"w":"你好"}]}]}
+            //sn:第几句
+            //ls:是否是第一句
+            //bg：开始
+            //ed:结束
+            //ws:词语
+            //cw:中文分词
+            //w:单词
+            //sc:分数
         }
         //会话发生错误回调接口
         public void onError(SpeechError error) {

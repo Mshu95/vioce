@@ -1,3 +1,5 @@
+package com.xfyun;
+
 import com.iflytek.cloud.speech.*;
 
 import java.io.File;
@@ -5,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * Created by Asus on 2017/6/27.
+ * Created by Mshu on 2017/6/27.
  * 音频流听写
  */
 public class ListeningFromFile {

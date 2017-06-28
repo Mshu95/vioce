@@ -1,5 +1,8 @@
+package com.xfyun; /**
+ * Created by Mshu on 2017/6/27.
+ * 语音合成
+ */
 import com.iflytek.cloud.speech.*;
-
 public class Spesking {
     private static final String APPID = "59522b3c";
     public static void main(String[] args) {
