@@ -11,23 +11,28 @@ public class Listening {
 //1.创建SpeechRecognizer对象
         SpeechRecognizer mIat= SpeechRecognizer.createRecognizer( );
 //2.设置听写参数，详见《MSC Reference Manual》SpeechConstant类
-        mIat.setParameter(SpeechConstant.DOMAIN, "iat");
-        mIat.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
-        mIat.setParameter(SpeechConstant.ACCENT, "mandarin ");
-        mIat.setParameter(SpeechConstant.AUDIO_SOURCE,"1");
-//3.开始听写
+        mIat.setParameter(SpeechConstant.DOMAIN, "iat"); //领域短信和日常用语：iat (默认)；视频：video；地图：poi；音乐：music
+        mIat.setParameter(SpeechConstant.LANGUAGE, "zh_cn");//简体中文：zh_cn（默认）；美式英文：en_us
+        mIat.setParameter(SpeechConstant.ACCENT, "mandarin ");//方言普通话：mandarin(默认);粤 语：cantonese四川话：lmz;河南话：henanese
+        mIat.setParameter(SpeechConstant.ASR_AUDIO_PATH, "./tts_test.pcm");  //识别完成后在本地保存一个音频文件
+        mIat.setParameter(SpeechConstant.AUDIO_SOURCE,"1");  //如果不写默认是“1”，“1”是从麦克风读取声音，“-1”是从.pcm音频文件读取声音
+//3.开始听写-
         mIat.startListening (mRecoListener);
     }
     //听写监听器
     private static RecognizerListener mRecoListener = new RecognizerListener(){
         //开始录音
         public void onBeginOfSpeech() {
-            System.out.println("开始录音");
+            System.out.println(".。开始录音。.");
         }
         //音量值0~30
-        public void onVolumeChanged(int volume){}
+        public void onVolumeChanged(int volume){
+            /*System.out.println("当前音量"+volume);*/
+        }
         //结束录音
-        public void onEndOfSpeech() {}
+        public void onEndOfSpeech() {
+            System.out.println("录音结束");
+        }
         //扩展用接口
         public void onEvent(int eventType,int arg1,int arg2,String msg) {}
         //听写结果回调接口(返回Json格式结果，用户可参见附录)；
