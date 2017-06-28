@@ -10,7 +10,7 @@ public class Grammar {
     private static final String APPID = "59522b3c";
     private static String GrammarId = null;
     private static String  mCloudGrammar = "#ABNF 1.0 UTF-8; languagezh-CN;  mode voice; root $main; $main = $place1 到$place2 ; $place1 = 北京 | 武汉 | 南京 | 天津 | 天京 | 东京; $place2 = 上海 | 合肥; ";
-    public static void mai(String[] args) {
+    public static void main(String[] args) {
         SpeechUtility.createUtility("appid=" + APPID);
         //1.创建SpeechRecognizer对象
         SpeechRecognizer mAsr = SpeechRecognizer.createRecognizer(); // ABNF语法示例，可以说”北京到上海”
@@ -28,9 +28,6 @@ public class Grammar {
         System.out.println("|"+GrammarId);
         mAsr.setParameter(SpeechConstant.CLOUD_GRAMMAR, GrammarId);
         mAsr.startListening(recognizerListener);
-        if (ret != ErrorCode.SUCCESS) {
-            System.out.println("识别失败,错误码: " + ret);
-        }
     }
     /**
      * 构建语法监听器
