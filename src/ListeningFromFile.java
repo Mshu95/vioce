@@ -1,12 +1,15 @@
 import com.iflytek.cloud.speech.*;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 /**
  * Created by Asus on 2017/6/27.
  */
 public class ListeningFromFile {
-    private static final String APPID = "591010d4";
+    private static final String APPID = "59522b3c";
+    private static StringBuffer mResult = new StringBuffer();
     public static void main(String[] args) {
         SpeechUtility.createUtility("appid=" + APPID);
 //1.创建SpeechRecognizer对象
@@ -19,11 +22,33 @@ public class ListeningFromFile {
 //3.开始听写
         mIat.startListening(mRecoListener);
 //voiceBuffer为音频数据流，splitBuffer为自定义分割接口，将其以4.8k字节分割成数组
-        /*ArrayList<byte[]> buffers = splitBuffer(voiceBuffer,voiceBuffer.length, 4800);
-        for (int i = 0; i < buffers.size(); i++) {
-            // 每次写入msc数据4.8K,相当150ms录音数据
-            mIat.writeAudio(buffers.get(i), 0, buffers.get(i).length);
-        }*/
+                FileInputStream fis = null;
+                final byte[] buffer = new byte[64*1024];
+                try {
+                    fis = new FileInputStream(new File("./tts_test.pcm"));
+                    if (0 == fis.available()) {
+                        mResult.append("no audio avaible!");
+                        mIat.cancel();
+                    } else {
+                        int lenRead = buffer.length;
+                        while( buffer.length==lenRead ){
+                            lenRead = fis.read( buffer );
+                            mIat.writeAudio( buffer, 0, lenRead );
+                        }//end of while
+                        mIat.stopListening();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        if (null != fis) {
+                            fis.close();
+                            fis = null;
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
         mIat.stopListening();
     }
     //听写监听器

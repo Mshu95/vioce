@@ -1,7 +1,7 @@
 import com.iflytek.cloud.speech.*;
 
 public class Spesking {
-    private static final String APPID = "591010d4";
+    private static final String APPID = "59522b3c";
     public static void main(String[] args) {
     SpeechUtility.createUtility("appid=" + APPID);
 //1.创建SpeechSynthesizer对象
