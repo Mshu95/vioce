@@ -21,7 +21,9 @@ public class Listening {
     //听写监听器
     private static RecognizerListener mRecoListener = new RecognizerListener(){
         //开始录音
-        public void onBeginOfSpeech() {}
+        public void onBeginOfSpeech() {
+            System.out.println("开始录音");
+        }
         //音量值0~30
         public void onVolumeChanged(int volume){}
         //结束录音
