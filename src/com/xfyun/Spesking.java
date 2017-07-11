@@ -5,7 +5,7 @@ package com.xfyun; /**
 import com.iflytek.cloud.speech.*;
 public class Spesking {
     private static final String APPID = "59522b3c";
-    public static void main(String[] args) {
+    public static void specking() {
     SpeechUtility.createUtility("appid=" + APPID);
 //1.创建SpeechSynthesizer对象
         SpeechSynthesizer mTts= SpeechSynthesizer.createSynthesizer( );
@@ -17,26 +17,7 @@ public class Spesking {
 //如果不需要保存合成音频，注释该行代码
         mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, "./tts_test.pcm");
 //3.开始合成
-        mTts.startSpeaking("语音合成测试程序", mSynListener);
+        Synthesizer synthesizer = new Synthesizer();
+        mTts.startSpeaking("语音合成测试程序", synthesizer);
     }
-    //合成监听器
-    private static SynthesizerListener mSynListener = new SynthesizerListener(){
-        //会话结束回调接口，没有错误时，error为null
-        public void onCompleted(SpeechError error) {}
-        @Override
-        public void onEvent(int i, int i1, int i2, int i3, Object o, Object o1) {
-        }
-        //缓冲进度回调
-        //percent为缓冲进度0~100，beginPos为缓冲音频在文本中开始位置，endPos表示缓冲音频在文本中结束位置，info为附加信息。
-        public void onBufferProgress(int percent, int beginPos, int endPos, String info) {}
-        //开始播放
-        public void onSpeakBegin() {}
-        //暂停播放
-        public void onSpeakPaused() {}
-        //播放进度回调
-        //percent为播放进度0~100,beginPos为播放音频在文本中开始位置，endPos表示播放音频在文本中结束位置.
-        public void onSpeakProgress(int percent, int beginPos, int endPos) {}
-        //恢复播放回调接口
-        public void onSpeakResumed() {}
-    };
 }
